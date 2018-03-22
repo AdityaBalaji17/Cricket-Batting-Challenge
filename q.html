@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+<meta content="utf-8" http-equiv="encoding">
+  <head>
+    <style>
+      body {
+	 background-color:white;
+        margin: 0px;
+        padding: 0px;
+		      }
+    </style>
+  </head>
+  <body onkeydown="fn(event)">
+    <div id="container"></div>
+    <script src="js/three.min.js"></script>
+	
+  <script defer="defer">
+  var wide=window.innerWidth/100;
+  var high=window.innerHeight/100;
+var meshes=[];
+var l=0;  
+function fn(e)
+{
+var keycode;
+    if (window.event)
+        keycode = window.event.keyCode;
+    else if (e)
+        keycode = e.which;
+		if(keycode==38)
+		camera.position.z-=0.4;
+}
+  function animate()
+  {
+  renderer.render(scene, camera);
+		 requestAnimationFrame(function(){
+            animate();
+        });
+		}
+		var renderer = new THREE.WebGLRenderer();
+	 
+      renderer.setSize(window.innerWidth-15, window.innerHeight-15);
+	  renderer.setClearColor( 0xffffffff, 1 );
+      document.body.appendChild(renderer.domElement);
+	  
+	   // scene
+      var scene = new THREE.Scene();
+      // camera
+      var camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 1000);
+      camera.position.z =150;
+	  camera.position.y=0;
+      var broom=new THREE.Mesh(new THREE.CylinderGeometry(1,1,40,50,50,false),new THREE.MeshBasicMaterial({color:0xf4a460}));
+	  scene.add(broom);
+	  broom.rotation.z=Math.PI/2;
+	  var personGeo=new THREE.SphereGeometry(20,50,50);
+	  var bod1=new THREE.CylinderGeometry(10,30,20,50,50,false);
+	  for(i=0;i<bod1.vertices.
+	animate();
+	  
+	   
+</script>	
+  </body>
+</html>      

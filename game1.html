@@ -1,0 +1,983 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <style>
+      body {
+	 background-color:#7ec0ee;
+        margin: 0px;
+        padding: 0px;
+      }
+    </style>
+  </head>
+  <body onkeydown="fn(event)">
+    <div id="container"></div>
+    <script src="three.min.js"></script>
+ 
+	<script src="jquery-1.3.2.min.js"></script>
+    <script defer="defer">
+	var armrot=0;
+	var runs=0,balls=0;
+	var AAA=0;
+	var S=0,Qwe=0;
+      // revolutions per second
+      var A=1,B=25,uuuu=1;
+	  var v=1;
+	  var TTT=0;
+	  var last=0,flick=0;
+	  var g=0;
+	  var mat=0,max=0;
+	  var tim;
+	  function fn(e)
+{
+ var keycode;
+    if (window.event)
+        keycode = window.event.keyCode;
+    else if (e)
+        keycode = e.which;
+//alert(keycode);
+
+    if((keycode==65))
+    {	
+	if(last==13||last==0){last=65;
+	
+	
+/*	rbodyz=0.6;
+ mesh.position=new THREE.Vector3(0,15*hf,0);
+ ARM.rotation.z=-0.25;
+ ARM.position=ARM2.position=new THREE.Vector3(0,-9*hf,10);
+ ARM2.rotation.z=-0.1;
+ BAT.rotation.z=0;
+ BAT.rotation.x=0;
+ BAT.position=new THREE.Vector3(-1*wf,hf*-1,-20);
+ cyl3.position=new THREE.Vector3(5.5*wf,-7*hf,0);
+ cyl3.rotation.z=0;
+ BAT.position=new THREE.Vector3(-1*wf,hf*-1,-20);
+	   cyl2.position=new THREE.Vector3(1.9*wf,-17*hf,30);
+	   cyl.position=new THREE.Vector3(wf*2.8,hf,0);
+	   cyl2.rotation.x=0;
+ ARM2.rotation.x=0;
+ ARM.rotation.x=0;
+ BAT.rotation.x=0;
+ BAT.position.y=0;
+ cyl1.rotation.x=0;
+ cyl3.rotation.x=0;
+ cyl1.position=new THREE.Vector3(4.7*wf,hf,0);
+ ARM2.position=new THREE.Vector3(0,9*hf,10);
+	  ARM2.rotation.z=-0.1;
+	   ARM.position=new THREE.Vector3(0,9*hf,30);
+	  ARM.rotation.z=-0.25;
+	  cyl2.position=new THREE.Vector3(2.2*wf,-17*hf,30);
+	    cyl3.position=new THREE.Vector3(5.5*wf,-7*hf,0);
+		cyl.position=new THREE.Vector3(wf*3,hf,0);
+		face.position.x=mesh.position.x-wf;
+		face.position.y=mesh.position.y+hf*4;*/
+ 
+    B=0;
+        return true;
+		}
+    }
+	else if(keycode==78)
+	{
+	var sc=[],bl=[],text=" \tHIGH SCORE \n";
+	/* for(var i=1;i<=localStorage.getItem("matches");i++)
+	 {
+	 sc[i]=localStorage.getItem("runs"+i);
+	 bl[i]=localStorage.getItem("balls"+i);
+	 }*/
+	/*for(i=1;i<=mat;i++)
+	{
+	for(j=1;j<=mat-1-i;j++)
+	{
+	if(sc[j]<sc[j+1])
+	{
+	var t=sc[j];
+	sc[j]=sc[j+1];
+	sc[j+1]=t;
+	t=bl[j];
+	bl[j]=bl[j+1];
+	bl[j+1]=t;
+	}
+	}
+	}*/
+	
+	alert("TOP SCORE: "+localStorage.getItem("max"));
+	}
+	else if(keycode==67)
+	{
+	if(last==13||last==0){last=67;
+	
+	flick=1;
+	//ball.position.x+=5;
+	}
+	
+	}
+	else if(keycode==13)
+	{
+	if(true &&YY!=0&&(new Date()).getTime()-S>2500)
+	{last=13;uuuu=0;
+	document.getElementById("score").innerHTML=""+runs+" ("+balls+")";
+	balls++;
+	g=0;
+	Qwe=0;
+	mesh2.position.x=-300;
+	mesh2.position.y=-50;
+	
+	face2.position.x=-300;
+	face2.position.y=-40;
+	
+	LEG1.position.x=-300;
+	LEG1.position.y=-85;
+	flick=0;
+	rbodyz=0.6;
+	cyl.rotation.x=0;
+ mesh.position=new THREE.Vector3(0,15*hf,50);
+ ARM.rotation.z=-0.25;
+ ARM.position=ARM2.position=new THREE.Vector3(0,-9*hf,50);
+ ARM2.rotation.z=-0.1;
+ BAT.rotation.z=0;
+ BAT.rotation.x=0;
+ Q2=1;
+ BAT.position=new THREE.Vector3(-1*wf,hf*-3,50);
+ cyl3.position=new THREE.Vector3(5.5*wf,-7*hf,50);
+ cyl3.rotation.z=0;
+ BAT.position=new THREE.Vector3(-1*wf,hf*-1,50);
+	   cyl2.position=new THREE.Vector3(1.9*wf,-17*hf,50);
+	   cyl.position=new THREE.Vector3(wf*2.8,hf,50);
+	   cyl2.rotation.x=0;
+ ARM2.rotation.x=0;
+ ARM.rotation.x=0;
+ BAT.rotation.x=0;
+ BAT.position.y=0;
+ cyl1.rotation.x=0;
+ cyl3.rotation.x=0;
+ cyl1.position=new THREE.Vector3(4.7*wf,hf,50);
+ ARM2.position=new THREE.Vector3(0,9*hf,70);
+	  ARM2.rotation.z=-0.1;
+	   ARM.position=new THREE.Vector3(0,9*hf,70);
+	  ARM.rotation.z=-0.25;
+	  cyl2.position=new THREE.Vector3(2.2*wf,-17*hf,50);
+	    cyl3.position=new THREE.Vector3(5.5*wf,-7*hf,50);
+		cyl.position=new THREE.Vector3(wf*3,hf,0);
+		face.position.x=mesh.position.x-wf;
+		face.position.y=mesh.position.y+hf*4;
+		face.position.z=mesh.position.z;
+		cyl2.position=new THREE.Vector3(2.2*wf,-17*hf,50);
+	cyl.rotation.z=-0.25;
+	y=0;
+			cyl3.rotation.z=0.2;
+			cyl1.rotation.z=0.2;
+	ball.position.y=-115*hf;
+	ball.position.z=30;
+	ball.position.x=0;
+	v=0;
+	Q2=1;
+	stump.rotation.x=0;
+stumpl.rotation.x=0;
+stumpr.rotation.x=0;
+stumpl.rotation.z=0;
+	 cyl.position=new THREE.Vector3(wf*2.8,hf,50);
+	 BAT.rotation.x=0;
+	BAT.rotation.y=0;
+	BAT.rotation.z=0;
+	mesh.rotation.z=rbodyz;
+	mesh.rotation.y=mesh.rotation.x=0;
+	cyl2.rotation.z=0;
+	armrot=0;
+	TTT=0;
+	AAA=0;
+	mesh3.position.x=862;
+	mesh3.position.y=-258;
+	
+	face3.position.x=862;
+	face3.position.y=-248;
+	LEG3.position.x=-200;
+	LEG3.position.y=-55;
+	LEG3.position.x=862;
+	LEG3.position.y=-293;
+	S=(new Date()).getTime();
+	Q=0.18+Math.pow(-1,Math.ceil(10*Math.random()))*Math.random();
+	//if(div)
+	//document.getElementById("div"+p1).style.display="none";
+	//document.getElementById("div").value="";
+//p1++;
+	}}
+	
+    else if((keycode ==88))
+    {
+	if(last==13||last==0){last=88;
+	/*
+ rbodyz=0.6;
+ mesh.position=new THREE.Vector3(0,15*hf,0);
+ ARM.rotation.z=-0.25;
+ ARM.position=ARM2.position=new THREE.Vector3(0,-9*hf,10);
+ ARM2.rotation.z=-0.1;
+ BAT.rotation.z=0;
+ BAT.rotation.x=0;
+ BAT.position=new THREE.Vector3(-1*wf,hf*-1,-20);
+ cyl3.position=new THREE.Vector3(5.5*wf,-7*hf,0);
+ cyl3.rotation.z=0;
+ BAT.position=new THREE.Vector3(-1*wf,hf*-1,-20);
+	   cyl2.position=new THREE.Vector3(1.9*wf,-17*hf,30);
+	   cyl.position=new THREE.Vector3(wf*2.8,hf,0);
+	   cyl2.rotation.x=0;
+ ARM2.rotation.x=0;
+ ARM.rotation.x=0;
+ BAT.rotation.x=0;
+ BAT.position.y=0;
+ cyl1.rotation.x=0;
+ cyl3.rotation.x=0;
+ cyl1.position=new THREE.Vector3(4.7*wf,hf,0);
+ ARM2.position=new THREE.Vector3(0,9*hf,10);
+	  ARM2.rotation.z=-0.1;
+	   ARM.position=new THREE.Vector3(0,9*hf,30);
+	  ARM.rotation.z=-0.25;
+	  cyl2.position=new THREE.Vector3(2.2*wf,-17*hf,30);
+	    cyl3.position=new THREE.Vector3(5.5*wf,-7*hf,0);
+		cyl.position=new THREE.Vector3(wf*3,hf,0);
+		face.position.x=mesh.position.x-wf;
+		face.position.y=mesh.position.y+hf*4;
+*/
+
+ A=0;
+p=1;
+ 
+  
+  
+  return true;
+    }}
+	if(keycode==77)
+	Q=0;
+	if(keycode==90)
+	{
+
+	if(last==13||last==0){last=90;
+armrot=1;
+	BAT.rotation.x=-0.4;
+	BAT.rotation.y=-0.6;
+	BAT.rotation.z=-0.4;
+	BAT.position.y+=2;
+	BAT.position.x-=7;
+	ARM.rotation.x=-0.6;
+	ARM.rotation.y=-0.8;
+	ARM.rotation.z=-0.4;
+	ARM.position.y+=0.3;
+	
+	ARM2.rotation.x=-0.6;
+	ARM2.rotation.y=-0.8;
+	ARM2.rotation.z=-0.2;
+	ARM2.position.y+=0.3;
+	
+	mesh.rotation.y-=0.51;
+	mesh.rotation.x+=1;
+	face.position.x-=2;
+	cyl.rotation.z=BAT.rotation.z;
+	cyl.position.y-=5;
+	cyl1.rotation.z-=2.5;
+	cyl1.position.z-=20;
+	cyl3.position.z-=0;
+	cyl3.rotation.z-=2.5;
+	cyl3.position.x+=14;
+	
+	cyl3.position.y+=2;
+	//cyl2.rotation.z-=1;
+	cyl2.position.x-=2;
+	cyl2.position.y-=4;
+	cyl2.position.z-=15;
+	cyl.position.z-=15;
+	tim=(new Date()).getTime();
+	//cyl2.rotation.z=BAT.rotation.z;
+	}}
+}
+	  var p=0,p1=0;
+	  var show,div;
+	  var angularSpeed = 0.2; 
+      var lastTime = 0;
+ var i=0;
+ var rbodyx=0,rbodyy=0,rbodyz=0.6,rneckx=0,rnecky=0,rneckz=0.35,rsleevex=0,rsleevey=0,rsleevez=0;
+ var hf=$(window).height()/100/2.5;
+ var wf=$(window).width()/100/2.5;
+ var U=10;
+ var y=0;
+ var Q=0,ZZ=1,Q2=0,Q1=2,YY=1,uu=1;
+ var QQQ=1;
+      // this function is executed on each animation frame
+      function animate(){
+	  //caera.position.y=-120;
+        // update
+		//camera.rotation.y+=0.02;
+	//camera.position.y=0;
+	if(YY==0)
+	{
+	
+	ZZ++;
+	if(ZZ>40)
+	{
+camera.position.y=ball.position.y-10*v;
+camera.position.x=ball.position.x;
+v+=0.05;
+
+}
+//camera.position.z--;
+//if(camera.rotation.z<3.2)
+//camera.rotation.z+=0.01;
+}
+
+     if((Math.abs(mesh2.position.x-ball.position.x)<20&&Math.abs(mesh2.position.y-ball.position.y)<20)||(Math.abs(mesh3.position.x-ball.position.x)<20&&Math.abs(mesh3.position.y-ball.position.y)<40&&Math.abs(ball.position.x)>15))
+{
+//alert("hh");
+camera.position.x=ball.position.x-100;
+document.getElementById('score').innerHTML="<h3>OUT</h3>";
+balls=0;
+Q=0;
+Q1=0;
+Q2=0;
+runs=0;
+}
+if(Math.abs(stump.position.x-ball.position.x)<=20&&Math.abs(stump.position.y-ball.position.y)<=10||Math.abs(stumpr.position.x-ball.position.x)<=10&&Math.abs(stumpr.position.y-ball.position.y)<=10||Math.abs(stumpl.position.x-ball.position.x)<=10&&Math.abs(stumpl.position.y-ball.position.y)<=10)
+{
+document.getElementById('score').innerHTML="<h3>OUT</h3>";
+
+stump.rotation.x=0.5;
+
+stumpl.rotation.x=0.5;
+stumpr.rotation.x=0.5;
+stumpl.rotation.z=0.5;
+     if(!localStorage.getItem('matches'))
+	 {
+	 localStorage.setItem("matches",1);
+	 localStorage.setItem("runs1",runs);
+	 mat=1;
+	 localStorage.setItem("balls1",balls);
+	 }
+	 else
+	 {
+	  mat=localStorage.getItem("matches");
+	 mat=mat+1;
+	 localStorage.setItem("matches",mat);
+	 localStorage.setItem("runs"+mat,runs);
+	 localStorage.setItem("balls"+mat,balls);
+	 }
+	 if(runs>=localStorage.getItem("max")||localStorage.getItem("matches")==1)
+	 {
+	 localStorage.setItem("max",runs);
+	 }
+if(AAA==0){
+//alert("DISMISSED FOR "+runs+ "!");
+AAA++;
+}
+balls=0;
+runs=0;
+}
+
+if(ball.position.y<-300*hf||ball.position.x>1500)
+{
+//alert(ball.position.x+" ,"+ball.position.y);
+ball.position.x=0;
+ball.position.y=-115*hf;
+camera.position.y=-45*hf;
+YY=1;
+
+ZZ=0;
+camera.position.x=0;
+camera.rotation.z=0;
+Q=0.18+Math.pow(-1,Math.ceil(10*Math.random()))*Math.random(),Q1=1,Q2=0;
+}	
+else if(ZZ>180)
+{
+//alert(ball.position.x+" ,"+ball.position.y);
+ball.position.x=0;
+ball.position.y=-115*hf;
+camera.position.y=-45*hf;
+camera.position.x=0;
+YY=1;
+ZZ=0;
+camera.rotation.z=0;
+Q=0.18+Math.pow(-1,Math.ceil(10*Math.random()))*Math.random(),Q1=1,Q2=0;
+}
+
+
+if(ball.position.z>40)
+Q1=1;
+		//face.position.x=mesh.position.x-wf;
+		face.position.y=mesh.position.y+hf*4;
+		face.position.z=mesh.position.z;
+ mesh.rotation.z=rbodyz;
+ // render
+ball.position.z-=0.2*Q1;
+ball.position.y+=(2.9+Math.random()*1.2)*Q2;
+ball.position.x-=0.3*Q;
+// show=document.getElementById("show");
+//if(YY!=0)
+  //document.getElementById("show").innerHTML="none";
+if(armrot==1)
+{
+var AB=Math.abs(ball.position.x-BAT.position.x);
+if(Math.abs(ball.position.y-BAT.position.y)<10&&Math.abs(ball.position.x-BAT.position.x)<12&&(new Date()).getTime()-tim<250)
+{
+ball.position.x-=70;
+document.getElementById("sound").play();
+if(AB<9)
+{
+mesh3.position.x=-903;
+mesh3.position.y=-203;
+face3.position.x=-903;
+	face3.position.y=-193;
+	LEG3.position.x=-903;
+	LEG3.position.y=-238;
+}
+if(AB<3)
+{Q2=-1.5;runs+=4;
+//var msg = new SpeechSynthesisUtterance("4");
+   
+}
+else if(AB<6)
+{Q2=-1;runs+=3;
+//var msg = new SpeechSynthesisUtterance("3");
+   TTT=1;
+}
+else if(AB<9)
+{Q2=-0.5;runs+=1;
+//var msg = new SpeechSynthesisUtterance("1");
+   TTT=1;
+
+}
+else
+{Q2=-0.25;
+TTT=1;
+}
+	 ball2.position.z=90;
+ball2.position.x=-125;
+ball2.position.y=-169*hf;	
+	Q=15;
+
+BALL2.position.z=90;
+BALL2.position.x=125;
+BALL2.position.y=-169*hf;	
+	 uu=0;
+	 camera.position.z=500;
+	 camera.position.x=100;
+	// ball.position.z=20;
+	 Q1=0;YY=0;
+}
+}
+if(flick===1&&g<=10)
+{
+g++;
+
+BAT.rotation.x+=0.04;
+	BAT.rotation.y+=0.12;
+	BAT.rotation.z-=0.04;
+	BAT.position.z+=3;
+	BAT.rotation.x+=0.04;
+	BAT.position.x+=1.5;
+	mesh.position.x+=1;
+	cyl.position.x+=1;
+	cyl1.position.x+=1;
+	cyl2.position.x+=1;
+	cyl3.position.x+=1;
+	face.position.x+=1;
+	cyl.rotation.x+=0.03;
+	//cyl.rotation.x+=0.2;
+	ARM.position.x+=1.5;
+	ARM2.position.x+=1.5;
+	mesh.rotation.x+=0.07;
+	cyl.position.z-=4;
+	cyl1.position.z-=2;
+	cyl2.position.z-=4;
+	cyl3.position.z-=2;
+	var AB=Math.abs(BAT.position.x-ball.position.x);
+if(Math.abs(BAT.position.y-ball.position.y)<10&&Math.abs(BAT.position.x-ball.position.x)<25)
+{
+ball.position.x+=100;
+document.getElementById("sound").play();
+
+
+if(AB<6){
+Q=-20;runs+=4;
+}
+else if(AB<12)
+{
+Q=-18;runs+=3;
+}
+else if(AB<18)
+{
+Q=-16;runs+=2;
+}
+else {Q=-14;runs+=1;}
+Q2=-0.4;
+YY=0;
+Q1=0;
+ ball2.position.z=90;
+ball2.position.x=425;
+ball2.position.y=-120*hf;	
+
+
+BALL2.position.z=90;
+BALL2.position.x=425;
+BALL2.position.y=-60*hf;	
+
+}
+}
+
+      if(B<20)
+ {
+ 
+ mesh3.position.x=-590;
+mesh3.position.y=1000;
+face3.position.x=-590;
+	face3.position.y=1010;
+	LEG3.position.x=-590;
+	LEG3.position.y=965;
+
+ var AB=Math.abs(ball.position.x-BAT.position.x);
+ 
+ if(Math.abs(ball.position.y-BAT.position.y)<7&&Math.abs(ball.position.x-BAT.position.x)<30)
+
+
+
+ //&&Math.abs(ball.position.x-BAT.position.x)<10)
+	 {
+	 if(AB<7)
+	 {Q2=0.5;runs+=2;
+	// var msg = new SpeechSynthesisUtterance("4");
+
+	
+
+	 }
+	 else if(AB<15)
+	 {
+	 Q2=1;
+	 runs+=2;
+	 //var msg = new SpeechSynthesisUtterance("2");
+   
+
+	 }
+	 else if(AB<24&&AB>15)
+	 {Q2=1.5;runs+=2;
+	
+   
+
+	 }
+	 else
+	 {Q2=2;runs+=2;}
+	//document.body.appendChild(div);
+	 //div.setAttribute("z-index",1000);
+	 document.getElementById("sound").play();
+	 ball.position.x-=20;
+//renderer.style.backgroundColor='blue';
+	 ball2.position=new THREE.Vector3(0,165*hf,90);
+	 BALL2.position=new THREE.Vector3(-100,100*hf,90);
+	 
+	 Q=10;
+	 Q1=0;
+	uu=1;
+	QQQ=0;
+	 YY=0;
+	// camera.position.y-=2;
+	 }
+ rbodyz-=0.005*U;
+ 
+ mesh.position.x+=0.03*wf*U;
+ ARM.rotation.z-=0.001*wf*U;
+ ARM.position=ARM2.position=new THREE.Vector3(3.5*wf,14*hf,50);
+ ARM2.rotation.z-=0.001*wf*U;
+ BAT.rotation.z-=0.0017*wf*U;
+cyl3.rotation.z+=0.0005*U;
+cyl3.position=new THREE.Vector3(5.8*wf,-6*hf,50);
+ BAT.position=new THREE.Vector3(-1*wf,hf*10,50);
+ face.position.x=mesh.position.x+1.4*wf;
+ face.position.z=mesh.position.z;
+ B++;
+ }
+ else if(p==0)
+ {
+ 
+ 
+	//},600);
+ 
+ }
+ 
+ else if(A<0.035/U&&p==1)
+ {y++;
+ var AB=Math.abs(ball.position.x-BAT.position.x);
+if(Math.abs(ball.position.y-BAT.position.y)<10&&Math.abs(ball.position.x-BAT.position.x)<10)
+	 {
+	 if(AB>=5)
+{
+mesh3.position.x=13;
+mesh3.position.y=-435;
+face3.position.x=13;
+	face3.position.y=-425;
+	LEG3.position.x=13;
+	LEG3.position.y=-470;
+}
+	 
+	 if(AB<2.5)
+	 {Q2=-1.8;runs+=3;
+	// var msg = new SpeechSynthesisUtterance("3");
+   
+
+	 }
+	 else if(AB<5)
+	 {Q2=-1.3;runs+=2;
+	 //var msg = new SpeechSynthesisUtterance("2");
+   
+
+	 }
+	 else if(AB<7.5)
+	 {Q2=-0.7;runs+=1;
+	
+
+	 }
+	 else
+	 Q2=-0.3;
+	 document.getElementById("sound").play();
+	 ball2.position.z=90;
+ball2.position.x=-125;
+ball2.position.y=-169*hf;	
+	
+BALL2.position.z=90;
+BALL2.position.x=125;
+BALL2.position.y=-169*hf;	
+	 uu=0;
+	 camera.position.z=500;
+	 camera.position.x=100;
+	// ball.position.z=20;
+	 Q1=0;YY=0;
+	// camera.position.y-=2;
+	
+	//document.getElementById("show").style.display='block';
+ //fade out after 3 seconds
+
+	}
+ ARM2.rotation.x-=0.005*U;
+ ARM.rotation.x-=0.005*U;
+ 
+ BAT.position=new THREE.Vector3(-wf,hf*10,50);
+ //BAT.position.y=ARM.position.y;
+ 
+ //BAT.position.z=ARM.position.z;
+ //BAT.position.y+=10;
+ if(y<10)
+ BAT.rotation.x+=0.004*U;
+ else
+ BAT.rotation.x-=0.009*U;
+ A+=0.0002;
+ cyl1.rotation.x-=0.002*U;
+ /*if(y<5)
+ cyl3.rotation.x-=0.02*U;
+ else*/
+  cyl.position=new THREE.Vector3(wf*2.8,hf,50);
+ cyl3.rotation.x+=0.002*U;
+ cyl2.position.z+=0.00;
+ cyl.position.z+=0.00;
+ cyl2.rotation.x-=0.0005*U;
+ }
+ else 
+ {
+ //setTimeout(function(){
+ /*rbodyz=0.6;
+ mesh.position=new THREE.Vector3(0,15*hf,0);
+ ARM.rotation.z=-0.25;
+ ARM.position=ARM2.position=new THREE.Vector3(0,-9*hf,10);
+ ARM2.rotation.z=-0.1;
+ BAT.rotation.z=0;
+ BAT.rotation.x=0;
+ BAT.position=new THREE.Vector3(-1*wf,hf*-1,-20);
+ cyl3.position=new THREE.Vector3(5.5*wf,-7*hf,0);
+ cyl3.rotation.z=0;
+ BAT.position=new THREE.Vector3(-1*wf,hf*-1,-20);
+	   cyl2.position=new THREE.Vector3(1.9*wf,-17*hf,30);
+	   cyl.position=new THREE.Vector3(wf*2.8,hf,0);
+	   cyl2.rotation.x=0;
+ ARM2.rotation.x=0;
+ ARM.rotation.x=0;
+ BAT.rotation.x=0;
+ BAT.position.y=0;
+ cyl1.rotation.x=0;
+ cyl3.rotation.x=0;
+ cyl1.position=new THREE.Vector3(4.7*wf,hf,0);
+ ARM2.position=new THREE.Vector3(0,9*hf,10);
+	  ARM2.rotation.z=-0.1;
+	   ARM.position=new THREE.Vector3(0,9*hf,30);
+	  ARM.rotation.z=-0.25;
+	  cyl2.position=new THREE.Vector3(2.2*wf,-17*hf,30);
+	    cyl3.position=new THREE.Vector3(5.5*wf,-7*hf,0);
+		cyl.position=new THREE.Vector3(wf*3,hf,0);
+		face.position.x=mesh.position.x-wf;
+		face.position.y=mesh.position.y+hf*4;
+		//},6000);*/
+  }
+       
+
+
+	   renderer.render(scene, camera);
+		 requestAnimationFrame(function(){
+            animate();
+        });
+		}
+   function generateTexture() {
+
+var size = 512;
+
+// create canvas
+canvas = document.createElement( 'canvas' );
+canvas.width = size;
+canvas.height = size;
+
+// get context
+var context = canvas.getContext( '2d' );
+
+// draw gradient
+context.rect( 0, 0, size, size );
+var gradient = context.createLinearGradient( 0, 0, size, size );
+gradient.addColorStop(0, 'blue'); // light blue 
+gradient.addColorStop(0.5, 'green');
+gradient.addColorStop(1, 'red');
+context.fillStyle = gradient;
+context.fill();
+
+return canvas;
+} 
+ var material2 = new THREE.MeshLambertMaterial({
+        map: THREE.ImageUtils.loadTexture('face.jpg')
+      });      // renderer
+var material4 = new THREE.MeshLambertMaterial({
+        map: THREE.ImageUtils.loadTexture('crate.jpg')
+      });
+	  var texture = new THREE.Texture( generateTexture() );
+	textureImage = texture.image;
+       var material9=new THREE.MeshLambertMaterial(
+	{
+	
+map:new THREE.ImageUtils.loadTexture('te.jpg')
+	
+	});
+    
+	 var renderer = new THREE.WebGLRenderer();
+	 //renderer.setAttribute('style','background: -moz-radial-gradient(green,green,blue); ');
+      renderer.setSize(window.innerWidth, window.innerHeight+100);
+      document.body.appendChild(renderer.domElement);
+	   
+	   // scene
+      var scene = new THREE.Scene();
+      // camera
+      var camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 1000);
+      camera.position.z = 500;
+	  camera.position.y=-45*hf;
+	  
+var material11=new THREE.MeshLambertMaterial({map:THREE.ImageUtils.loadTexture('face.jpg'),opacity:0.8});
+	 var rectLength = 20*wf, rectWidth = 25*hf;
+	var RectLength=450*wf,RectWidth=550*hf;
+var RectShape=new THREE.Shape();
+//RectShape.beginPath();
+RectShape.moveTo(-RectLength,-RectWidth-90*hf);
+RectShape.lineTo( RectLength, -RectWidth-90*hf);
+	RectShape.lineTo( RectLength, RectWidth+90*hf ); 
+RectShape.lineTo(-RectLength,RectWidth+90*hf);
+var RectGeom = new THREE.ShapeGeometry( RectShape ); 
+var RectMesh = new THREE.Mesh( RectGeom, material9 );
+//scene.add(RectMesh);
+	
+	var circleGeometry = new THREE.CircleGeometry( 1200, 500 );				
+var circle = new THREE.Mesh( circleGeometry, new THREE.MeshBasicMaterial({color:0x006400}) );
+scene.add( circle );
+	
+	var rectShape = new THREE.Shape(); 
+	rectShape.moveTo( -rectLength,-rectWidth-90*hf );
+	//rectShape.lineTo( -rectLength, rectWidth ); 
+	rectShape.lineTo( rectLength, -rectWidth-90*hf );
+	rectShape.lineTo( rectLength, rectWidth ); 
+rectShape.lineTo(-rectLength,rectWidth);
+var rectGeom = new THREE.ShapeGeometry( rectShape ); var rectMesh = new THREE.Mesh( rectGeom, material2);
+	scene.add( rectMesh );
+
+
+	  
+	
+     
+      var material3 = new THREE.MeshLambertMaterial( {
+map: THREE.ImageUtils.loadTexture('t.jpg')
+}
+);
+      
+      var material = new THREE.MeshLambertMaterial({
+        map: THREE.ImageUtils.loadTexture('jersey.png')
+      });
+  var materialpitch= new THREE.MeshLambertMaterial({
+        map: THREE.ImageUtils.loadTexture('text.jpg'),
+		//opacity:0.2
+      });   
+
+
+   
+  var material4 = new THREE.MeshLambertMaterial({
+        map: THREE.ImageUtils.loadTexture('crate.jpg')
+      });
+      
+   var bod = new THREE.CylinderGeometry(2*wf, 2*wf, 12*hf, 50, 50, false);
+    var sleeve=new THREE.CylinderGeometry(0.5*wf, 1*wf, 3*hf, 50, 50, false);
+	  var neck = new THREE.CylinderGeometry(wf, 2*wf, 4*hf, 50, 50, false);
+  for(var i = 0 ; i < bod.vertices.length; i++)
+	  bod.vertices[i].y -= 8*hf;
+	  // directional lighting
+      var directionalLight = new THREE.DirectionalLight(0xffffffff);
+      directionalLight.position.set(10, 10, 10).normalize();
+      scene.add(directionalLight);
+ 
+	   THREE.GeometryUtils.merge(neck,bod);
+	   var F1=new THREE.SphereGeometry(1.2*Math.sqrt(hf*hf+wf*wf),32,32);
+	var face=new THREE.Mesh(F1,material11);
+	scene.add(face);
+	
+	   
+	   var mesh = new THREE.Mesh( neck,material);
+                scene.add(mesh);
+				mesh.position=new THREE.Vector3(0,15*hf,50);
+			var legnz=new THREE.CylinderGeometry(wf, wf, 15*hf, 50, 50, false);
+	 
+	  var cyl1 = new THREE.Mesh(new THREE.CylinderGeometry(wf, wf, 10*hf, 50, 50, false), material3);
+      cyl1.overdraw = true;
+	  cyl1.position=new THREE.Vector3(4.7*wf,hf,50);
+      scene.add(cyl1);	
+		//cyl1.rotation.z=0.2;	
+			  var cyl3 = new THREE.Mesh(new THREE.CylinderGeometry(wf, wf, 8.5*hf, 50, 50, false), material4);
+      cyl3.overdraw = true;
+	  cyl3.position=new THREE.Vector3(5.5*wf,-7*hf,50);
+      scene.add(cyl3);	
+		//cyl3.rotation.z=0.2;	
+var material8=new THREE.MeshNormalMaterial(
+	{
+color:0xffffffff,
+	opacity:0.5
+	});
+
+	
+		var G1=new THREE.CylinderGeometry(wf*1.1, wf*1.1, 13*hf, 50, 50, false);
+		var G2=new THREE.CylinderGeometry(wf*1, wf*1.1, 9*hf, 50, 50, false);
+		var G3=new THREE.CylinderGeometry(4, 4, 20*hf, 50, 50, false);
+		var stump=new THREE.Mesh(G3,material8);
+		scene.add(stump);
+		var stumpl=new THREE.Mesh(G3,material8);
+		var stumpr=new THREE.Mesh(G3,material8);
+		stumpl.position=new THREE.Vector3(-12,13*hf,30);
+		stumpr.position=new THREE.Vector3(0,13*hf,30);
+		stump.position=new THREE.Vector3(12,13*hf,30);
+		stump.rotation.x=0;
+		scene.add(stumpl);
+		scene.add(stumpr);
+G2.applyMatrix( new THREE.Matrix4().makeTranslation( 0, hf*8.8, 0 ) );
+var cyl = new THREE.Mesh(G1, material3);
+      cyl.overdraw = true;
+	   cyl.position=new THREE.Vector3(wf*2.8,hf,50);
+	  cyl.rotation.z=-0.3;
+      scene.add(cyl);
+	  
+	var cyl2 = new THREE.Mesh(G2, material4);
+      cyl2.overdraw = true;
+	   cyl2.position=new THREE.Vector3(2.2*wf,-17*hf,50);
+	  // geometry.applyMatrix( new THREE.Matrix4().makeTranslation( 0, cylinderHeight/2, 0 ) );
+	//cyl2.rotation.z=-0.2;
+	cyl.rotation.z=-0.25;
+      scene.add(cyl2); 		
+			cyl3.rotation.z=0.2;
+			cyl1.rotation.z=0.2;
+ var han = new THREE.CylinderGeometry(wf/2.5, wf/2.5, 5*hf, 50, 50, false);
+    var bat=new THREE.CubeGeometry(wf*2,hf*13,4);    
+for(var j=0;j<bat.vertices.length;j++)
+bat.vertices[j].y-=9*hf;	
+THREE.GeometryUtils.merge(han,bat);
+	var BAT=new THREE.Mesh(han,material4);
+	scene.add(BAT);
+	BAT.position=new THREE.Vector3(-1*wf,hf*-1,50);
+	//BAT.rotation.z=0.6;
+	 
+	  //sleeve
+	  var cyl4 = new THREE.CylinderGeometry(wf*0.4, wf*0.7, hf*3, 50, 50, false);
+    
+	 // arm
+	 var arm=new THREE.CylinderGeometry(wf*0.7, wf*0.6, hf*10, 50, 50, false);
+	 for(j=0;j<arm.vertices.length;j++)
+	 
+	arm.vertices[j].y-=hf*6;
+	
+	 THREE.GeometryUtils.merge(cyl4,arm);
+	 var ARM=new THREE.Mesh(cyl4,material3);
+	  ARM.position=new THREE.Vector3(0,9*hf,70);
+	  ARM.rotation.z=-0.25;
+	  scene.add(ARM);
+	  var ARM2=new THREE.Mesh(cyl4,material3);
+	  ARM2.position=new THREE.Vector3(0,9*hf,70);
+	  ARM2.rotation.z=-0.1;
+	  scene.add(ARM2);
+	  face.position.x=mesh.position.x-wf;
+		face.position.y=mesh.position.y+hf*4;
+	
+		
+ //rectMesh.rotation.y=1.5;
+	var ball=new THREE.Mesh(new THREE.SphereGeometry(6,32,32),new THREE.MeshLambertMaterial({map:THREE.ImageUtils.loadTexture('ball.jpg')}));
+scene.add(ball);
+ball.position.z=90;
+ball.position.x=0;
+ball.position.y=-115*hf;	
+	//test
+var ball2=new THREE.Mesh(new THREE.CylinderGeometry(0,16,32,50,50,false),material3);
+scene.add(ball2);
+ball2.position.z=90;
+ball2.position.x=-125;
+ball2.position.y=-169*hf;	
+	var BALL2=new THREE.Mesh(new THREE.CylinderGeometry(0,16,32,50,50,false),material3);
+BALL2.position.z=90;
+BALL2.position.x=125;
+BALL2.position.y=-169*hf;	
+	scene.add(BALL2);
+	
+	var materialnz=new THREE.MeshLambertMaterial({
+	map:THREE.ImageUtils.loadTexture('j.jpg')
+	});
+	var mesh2=new THREE.Mesh(neck,materialnz);
+	mesh2.position.x=-300;
+	mesh2.position.y=-50;
+	scene.add(mesh2);
+	var materialaus=new THREE.MeshLambertMaterial(
+	{
+	map:THREE.ImageUtils.loadTexture('aus.jpg')
+	});
+	var mesh3=new THREE.Mesh(neck,materialaus);
+	mesh3.position.x=862;
+	mesh3.position.y=-258;
+	scene.add(mesh3);
+	
+	var face3=new THREE.Mesh(F1,material11);
+	
+	scene.add(face3);
+	face3.position.x=862;
+	face3.position.y=-248;
+	var LEG3=new THREE.Mesh(legnz,materialaus);
+	scene.add(LEG3);
+	LEG3.position.x=-200;
+	LEG3.position.y=-55;
+	LEG3.position.x=862;
+	LEG3.position.y=-293;
+	
+	var face2=new THREE.Mesh(F1,material11);
+	face2.position.x=-300;
+	face2.position.y=-40;
+	scene.add(face2);
+	var LEG1=new THREE.Mesh(legnz,materialnz);
+	scene.add(LEG1);
+	LEG1.position.x=-300;
+	LEG1.position.y=-85;
+	
+	
+/*var pitch=new THREE.Mesh(new THREE.CubeGeometry(wf*25,hf*115,10),material8);
+scene.add(pitch);*/
+	animate();
+	  // renderer.render(scene, camera);
+	  
+    </script>
+	
+	<audio id="sound" src="t.mp3"></audio>
+	<div style="position:fixed;top:10%;left:80%;background-color:transparent;color:yellow;"><h1 id="score">0 (0)</h1></div>
+  </body>
+</html>      

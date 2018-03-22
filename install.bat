@@ -1,0 +1,2 @@
+unzip js.zip
+exit

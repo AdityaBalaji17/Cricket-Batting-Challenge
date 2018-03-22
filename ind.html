@@ -1,0 +1,176 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <style>
+      body {
+	  
+        margin: 0px;
+        padding: 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container"></div>
+    <script src="js/three.min.js"></script>
+    <script defer="defer">
+      // revolutions per second
+      
+	  var angularSpeed = 0.2; 
+      var lastTime = 0;
+ var i=0;
+ var A=0.6,B=2.9,C=2.8,D=0,D2=0,D44=0,D3=0,DD=0,D4=0,E=2.5;
+      // this function is executed on each animation frame
+      function animate(){
+        // update
+		var time = (new Date()).getTime();
+        var timeDiff = time - lastTime;
+        var angleChange = 2;//angularSpeed * timeDiff * 2 * Math.PI / 1000;
+		//cylinder.rotation.y=2;
+        cylinder.rotation.z = A;
+		neck.rotation.z=A;
+		sphere.rotation.y=A;
+		cyl.rotation.z=C;
+        lastTime = time;
+ cyl1.rotation.z=D2;
+ cyl2.rotation.z=B;
+ cyl3.rotation.z=D2;
+ cyl4.rotation.z=D2;
+ cyl5.rotation.z=D2;
+ cyl6.rotation.z=E;
+ cyl7.rotation.z=3;
+ bat.rotation.x=D;
+ bat.rotation.y=D3;
+ bat.rotation.z=D4;
+ 
+ // render
+        renderer.render(scene, camera);
+		 requestAnimationFrame(function(){
+            animate();
+        });
+		}
+    
+ 
+      // renderer
+      var renderer = new THREE.WebGLRenderer();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      document.body.appendChild(renderer.domElement);
+ 
+      // camera
+      var camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 1000);
+      camera.position.z = 500;
+	  
+ 
+      // scene
+      var scene = new THREE.Scene();
+      var material3 = new THREE.MeshLambertMaterial( {
+map: THREE.ImageUtils.loadTexture('t.jpg')
+}
+);
+      // material
+      var material = new THREE.MeshLambertMaterial({
+        map: THREE.ImageUtils.loadTexture('jersey.png')
+      });
+                
+      //sleeve
+       var cyl4 = new THREE.Mesh(new THREE.CylinderGeometry(8, 13, 30, 50, 50, false), material3);
+      cyl4.overdraw = true;
+	  
+      scene.add(cyl4);
+	 
+	  cyl4.position=new THREE.Vector3(-8,70,50);
+	    var cylinder = new THREE.Mesh(new THREE.CylinderGeometry(35, 35, 80, 50, 50, false), material);
+      cylinder.overdraw = true;
+	  
+      scene.add(cylinder);
+	 // cylinder.position=new THREE.Vector3(0,60,0);
+	  cylinder.position=new THREE.Vector3(0,60,11);
+	  var neck = new THREE.Mesh(new THREE.CylinderGeometry(20, 35, 20, 50, 50, false), material);
+      neck.overdraw = true;
+	  
+      scene.add(neck);
+	  neck.position=new THREE.Vector3(-28,100,11);
+	   var geometry = new THREE.SphereGeometry( 20, 32, 32 );
+var material2 = new THREE.MeshLambertMaterial( {
+map: THREE.ImageUtils.loadTexture('face.jpg')
+}
+); 
+
+//hand
+var cyl5 = new THREE.Mesh(new THREE.CylinderGeometry(12, 12, 20, 50, 50, false), material2);
+      cyl5.overdraw = true;
+	  
+      scene.add(cyl5);
+	 
+	  cyl5.position=new THREE.Vector3(-8,50,50);
+	  
+	  //arm
+	  
+	  var cyl6= new THREE.Mesh(new THREE.CylinderGeometry(9, 8, 50, 50, 50, false), material2);
+      cyl6.overdraw = true;
+	  
+      scene.add(cyl6);
+	 
+	  cyl6.position=new THREE.Vector3(-15,30,50);
+
+	  var sphere = new THREE.Mesh( geometry, material2 );
+scene.add( sphere );
+sphere.position=new THREE.Vector3(-45,125,11);
+	  
+	  var ambientLight = new THREE.AmbientLight(0xbbbbbb);
+      scene.add(ambientLight);
+      //legs
+	   var cyl = new THREE.Mesh(new THREE.CylinderGeometry(14, 11, 70, 50, 50, false), material3);
+      cyl.overdraw = true;
+	  
+      scene.add(cyl);
+	 
+	  cyl.position=new THREE.Vector3(-20,20,20);
+	  
+	  var cyl1 = new THREE.Mesh(new THREE.CylinderGeometry(14, 11, 70, 50, 50, false), material3);
+      cyl1.overdraw = true;
+	  
+      scene.add(cyl1);
+	 
+	  cyl1.position=new THREE.Vector3(-30,-40,20);
+       var cyl2 = new THREE.Mesh(new THREE.CylinderGeometry(14, 20, 70, 50, 50, false), material3);
+      cyl2.overdraw = true;
+	  
+      scene.add(cyl2);
+	 
+	  cyl2.position=new THREE.Vector3(20,20,0);
+	  
+	   var cyl3 = new THREE.Mesh(new THREE.CylinderGeometry(14, 11, 60, 50, 50, false), material3);
+      cyl3.overdraw = true;
+	  
+      scene.add(cyl3);
+	 
+	  cyl3.position=new THREE.Vector3(10,-40,0);
+	
+	  var material4=new THREE.MeshLambertMaterial( {
+map: THREE.ImageUtils.loadTexture('crate3.jpg.png')
+}
+); 
+var bat=new THREE.Mesh(new THREE.CubeGeometry(20,120,5),material4);
+bat.position=new THREE.Vector3(-40,-20,10);
+bat.overdraw=true;
+scene.add(bat);
+
+  var cyl7 = new THREE.Mesh(new THREE.CylinderGeometry(14, 11, 25, 50, 50, false), material2);
+      cyl7.overdraw = true;
+	  
+      scene.add(cyl7);
+	 
+	  cyl7.position=new THREE.Vector3(-30,35,10);
+	
+	 
+	  // directional lighting
+      var directionalLight = new THREE.DirectionalLight(0xffff00);
+      directionalLight.position.set(1, 1, 1).normalize();
+      scene.add(directionalLight);
+ 
+      animate();
+	  D=-0.5;
+	  // renderer.render(scene, camera);
+    </script>
+  </body>
+</html>      

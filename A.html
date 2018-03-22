@@ -1,0 +1,199 @@
+<html>
+<body onload="init()">
+<script>
+var can,ctx,bat,ctxbat,ff,bf,fh,bh,ctxbf,ctxff,ctxfh,ctxbh,t,f1;
+function $(name)
+{
+return document.getElementById(name);
+}
+function init()
+{
+can=$("can");
+ctx=can.getContext("2d");
+bat=$("bat");
+ctxbat=bat.getContext("2d");
+ff=$("ff");
+ctxff=ff.getContext("2d");
+
+
+bf=$("bf");
+ctxbf=bf.getContext("2d");
+
+fh=$("fh");
+ctxfh=fh.getContext("2d");
+
+bh=$("bh");
+ctxbh=bh.getContext("2d");
+t=can.width/2-can.width/30+can.width/240;
+ f1=can.width/15-can.width/120; 
+drawPlayer(can.width/2,can.height/8);
+}
+function drawPlayer(x,y)
+{
+
+var pts=[];//(pts[i],y+can.width/11-can.width/22)
+pts[0]=x-can.width/22;
+pts[3]=x+can.width/22;
+pts[1]=pts[0]+(pts[3]-pts[0])/3;
+pts[2]=(pts[3]+pts[1])/2;
+
+//face colour
+
+ctx.beginPath();
+ctx.strokeStyle="rgba(249,228,176,1)";
+ctx.lineWidth=pts[3]-pts[0];
+ctx.moveTo(x,y);
+ctx.lineTo(x,y+can.width/22);
+ctx.stroke();
+var Y=22;
+while(Y>10)
+{
+ctx.beginPath();
+ctx.strokeStyle="rgba(249,228,176,1)";
+ctx.lineWidth-=can.width/88;
+ctx.moveTo(x,y+can.width/Y);
+ctx.lineTo(x,y+can.width/(Y-3));
+Y-=3;
+ctx.stroke();
+}
+
+//EYES, NOSE, etc
+	  ctx.beginPath();
+ctx.lineWidth=1;
+ctx.strokeStyle="black";
+ctx.arc(x-can.width/40,y+can.width/54,0.9,0,Math.PI*2);
+ctx.stroke();
+
+
+
+ctx.beginPath();
+ctx.lineWidth=1;
+ctx.strokeStyle="black";
+ctx.arc(x+can.width/40,y+can.width/54,0.9,0,Math.PI*2);
+ctx.stroke();
+
+ctx.beginPath();
+ctx.lineWidth=1;
+ctx.strokeStyle="red";
+ctx.arc(x,y+can.width/16,1.5,0,Math.PI*2);
+ctx.stroke();
+
+ctx.beginPath();
+ctx.strokeStyle="brown";
+ctx.moveTo(t+f1/2-2,y+can.width/34);
+ctx.lineTo(t+f1/2+2,y+can.width/34);
+ctx.stroke();
+
+//HELMET TOP
+ctx.lineWidth=1;
+ctx.fillStyle="blue";
+ctx.beginPath();
+ctx.arc(x,y,can.width/20,0,Math.PI,true);
+ctx.fill();
+//GRILLS
+ctx.beginPath();
+//connect each point to the bottom of helmet grill - (x-can.width/44,y+can.width/11) and x+
+ctx.strokeStyle="black";
+      
+	  for(var i=0;i<4;i++)
+	  {
+	  ctx.beginPath();
+	  ctx.lineWidth=0.7;
+	  if(i<2)
+	  {
+	  ctx.moveTo(pts[i],y+can.width/11-can.width/22);
+	  ctx.lineTo(x-can.width/44,y+can.width/11);
+	  ctx.stroke();
+	  }
+	  else
+	  {
+	  ctx.moveTo(pts[i],y+can.width/11-can.width/22);
+	  ctx.lineTo(x+can.width/44,y+can.width/11);
+	  ctx.stroke();
+	  }
+	  }
+	  
+	  //some extra grills
+	  ctx.beginPath();
+	  ctx.lineWidth=0.7;
+	  ctx.moveTo(x,y+can.width/22);
+	  ctx.lineTo(x,y+can.width/11);
+	  ctx.stroke();
+	  ctx.beginPath();
+	  ctx.lineWidth=0.7;
+	  ctx.moveTo((pts[0]+pts[1])/2,y+can.width/22);
+	  ctx.lineTo((pts[0]+pts[1])/2-can.width/110,y+can.width/11-can.width/44);
+	  ctx.stroke();
+	  ctx.beginPath();
+	  ctx.lineWidth=0.7;
+	  ctx.moveTo((pts[2]+pts[3])/2,y+can.width/22);
+	  ctx.lineTo((pts[2]+pts[3])/2+can.width/110,y+can.width/11-can.width/44);
+	  ctx.stroke();
+	  
+	  //connects cap to grills
+	  ctx.beginPath();
+	  ctx.moveTo(pts[0],y+can.width/11-can.width/22);
+	  ctx.lineTo(pts[3],y+can.width/11-can.width/22);
+	  ctx.stroke();
+	  
+	  ctx.beginPath();
+	  ctx.moveTo(x-can.width/44,y+can.width/11);
+	  ctx.lineTo(x+can.width/44,y+can.width/11);
+	  ctx.stroke();
+	  ctx.beginPath();
+	  ctx.lineWidth=2;
+	  ctx.moveTo(x-can.width/20+1.5,y);
+	  ctx.lineTo(pts[0],y+can.width/11-can.width/22);
+	  ctx.stroke();
+	  
+	  ctx.beginPath();
+	  ctx.lineWidth=2;
+	  ctx.moveTo(x+can.width/20-1.5,y);
+	  ctx.lineTo(pts[3],y+can.width/11-can.width/22);
+	  ctx.stroke();
+	  
+//FLAG
+	ctx.beginPath();
+ctx.lineWidth=8;
+ctx.strokeStyle="orange";
+ctx.moveTo(x,y-can.width/25);
+ctx.lineTo(x,y-can.width/25+3);
+ctx.stroke();
+
+ctx.beginPath();
+ctx.lineWidth=8;
+ctx.strokeStyle="white";
+ctx.moveTo(x,y-can.width/25+3);
+ctx.lineTo(x,y-can.width/25+6);
+ctx.stroke();
+
+ctx.beginPath();
+ctx.lineWidth=8;
+ctx.strokeStyle="green";
+ctx.moveTo(x,y-can.width/25+6);
+ctx.lineTo(x,y-can.width/25+9);
+ctx.stroke();
+
+
+  
+	  //END Of HELMET
+	  
+	  //HANDS
+	  
+	  fh.style.top=x+can.width/24+"px";
+	  fh.style.left=y+can.width/11+"px";
+	  ctxfh.beginPath();
+	  ctxfh.fillStyle="teal";
+	  ctxfh.arc(x+can.width/24,y+can.width/9,0,Math.PI,true);
+	  ctxfh.fill();
+}
+</script>
+<canvas id="can" style="width:100%;height:100%"></canvas>
+<canvas id="bat" style="position:fixed;top:40%;left:40%;width:2%;height:18%;"></canvas>
+<canvas id="ff" style="position:fixed;top:40%;left:40%;width:2%;height:18%;"></canvas>
+<canvas id="bf" style="position:fixed;top:40%;left:40%;width:2%;height:18%;"></canvas>
+<canvas id="bh" style="position:fixed;top:40%;left:40%;width:2%;height:18%;"></canvas>
+<canvas id="fh" style="position:fixed;top:40;left:40;width:20;height:18;"></canvas>
+
+</body>
+</html>

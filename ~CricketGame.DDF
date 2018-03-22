@@ -1,0 +1,47 @@
+;Auto-generated Diamond Directive File. Can be deleted without harm.
+.Set CabinetNameTemplate=F:\three\~CricketGame.CAB
+.Set CompressionType=LZX
+.Set CompressionLevel=7
+.Set InfFileName=F:\three\~CricketGame_LAYOUT.INF
+.Set RptFileName=F:\three\~CricketGame.RPT
+.Set MaxDiskSize=CDROM
+.Set ReservePerCabinetSize=0
+.Set InfCabinetLineFormat=*cab#*=Application Source Media,*cabfile*,0
+.Set Compress=on
+.Set CompressionMemory=21
+.Set DiskDirectoryTemplate=
+.Set Cabinet=ON
+.Set MaxCabinetSize=999999999
+.Set InfDiskHeader=
+.Set InfDiskLineFormat=
+.Set InfCabinetHeader=[SourceDisksNames]
+.Set InfFileHeader=
+.Set InfFileHeader1=[SourceDisksFiles]
+.Set InfFileLineFormat=*file*=*cab#*,,*size*,*csum*
+"F:\three\~Cricket.DDF"
+"F:\three\~CricketGame.DDF"
+"F:\three\A.html"
+"F:\three\abc.jpg"
+"F:\three\ball.jpg"
+"F:\three\crate.jpg"
+"F:\three\crate2.jpg"
+"F:\three\crate3.jpg.png"
+"F:\three\cricket.bat"
+"F:\three\Cricket.SED"
+"F:\three\CricketGame.SED"
+"F:\three\face.jpg"
+"F:\three\ind.html"
+"F:\three\index.html"
+"F:\three\install.bat"
+"F:\three\j.jpg"
+"F:\three\jersey.png"
+"F:\three\jquery-1.3.2.min.js"
+"F:\three\t.jpg"
+"F:\three\T.mp3"
+"F:\three\te.jpg"
+"F:\three\tex.jpg"
+"F:\three\text.jpg"
+"F:\three\texture.jpg"
+"F:\three\TH.html"
+"F:\three\three.min.js"
+"F:\three\three.zip"
